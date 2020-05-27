@@ -1,0 +1,13 @@
+{
+  "name": "simumatik-server",
+  "license": "MIT",
+  "scripts": {
+    "guide": "echo ' \n \t\t USER GUIDE\n\t RUN these commands in CMD \n yarn  deploy \t\t\t signle click deploy (build, dockerize, push) \n yarn submodule-update \t\t pull submodule changes from remote master branch \n yarn dockerize \t\t create and tag a docker image \n yarn run-docker \t\t run the created docker image \n yarn push \t\t\t push a the docker image to the cloud (requires cmd) \n '",
+
+    "build-docker": "docker build -t simumatik/websocket-server -f docker/Dockerfile .",
+    "tag-docker": "docker tag simumatik/websocket-server:latest 977153923500.dkr.ecr.eu-central-1.amazonaws.com/simumatik/websocket-server:latest",
+    "aws-login": "aws ecr get-login --no-include-email --region eu-central-1 | powershell.exe",
+    "push-production": "docker push 977153923500.dkr.ecr.eu-central-1.amazonaws.com/simumatik/websocket-server:latest",
+    "deploy-docker": "yarn build-docker && yarn tag-docker && yarn aws-login && yarn push-docker"
+  }
+}
