@@ -7,7 +7,7 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     python3-pip \
     python3-setuptools \
     python3-wheel \
-    python3-dev \
+    python3-dev 
 
 # Install the requirements in it's own layer
 # When they are changed, this layer and all

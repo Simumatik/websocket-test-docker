@@ -70,6 +70,7 @@ def WebSocket_thread():
 
 if __name__ == "__main__":
     # Launch WebSocket Server
+    print(f"Server starting...")
     t = Thread(target=WebSocket_thread, daemon=True)
     t.start()
     print(f"Server started at {IP}:{PORT}")
